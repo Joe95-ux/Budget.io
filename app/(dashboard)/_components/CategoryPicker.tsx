@@ -20,7 +20,7 @@ import { cn } from "@/lib/utils";
 import { Category } from "@prisma/client";
 import { useQuery } from "@tanstack/react-query";
 import { Check, ChevronsUpDown } from "lucide-react";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect} from "react";
 
 interface Props {
   type: TransactionType;
