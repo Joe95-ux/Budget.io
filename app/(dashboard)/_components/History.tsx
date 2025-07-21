@@ -180,7 +180,8 @@ function History({ userSettings }: { userSettings: UserSettings }) {
 
 export default History;
 
-function CustomTooltip({ active, payload, formatter }: any) {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function CustomTooltip({ active, payload, formatter }: any ) {
   if (!active || !payload || payload.length === 0) return null;
 
   const data = payload[0].payload;
