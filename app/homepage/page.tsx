@@ -1,6 +1,10 @@
-import React from "react";
+"use client"
+import { useUser } from "@clerk/nextjs";
 
-const Homepage = () => {
+const Homepage =  () => {
+  const user = useUser();
+
+
   return (
     <div>
       <div>
@@ -14,7 +18,7 @@ const Homepage = () => {
           </p>
         </div>
         <div>
-            
+
         </div>
       </div>
     </div>
