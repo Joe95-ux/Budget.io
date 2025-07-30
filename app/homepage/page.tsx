@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
-export default function LandingPage() {
+export default function HomePage() {
   const { theme } = useTheme();
   const [activeFeature, setActiveFeature] = useState("tracking");
 
@@ -183,7 +183,7 @@ export default function LandingPage() {
           </div>
           <div className="bg-background p-8 rounded-xl shadow-sm border text-left">
             <p className="text-lg mb-6">
-              "Budget-IO completely transformed how I manage my money. I've saved over $5,000 in just six months by following its insights and recommendations."
+              &quot;Budget-IO completely transformed how I manage my money. I&apos;ve saved over $5,000 in just six months by following its insights and recommendations.&quot;
             </p>
             <div className="flex items-center">
               <div className="rounded-full bg-primary/10 p-2 mr-4">
