@@ -1,6 +1,13 @@
 "use client";
 
-import React, { type FC, useState, useEffect, useRef, JSX } from "react";
+import React, {
+  type FC,
+  useState,
+  useEffect,
+  useRef,
+  JSX,
+  useCallback,
+} from "react";
 import { Button } from "./button";
 import { Popover, PopoverContent, PopoverTrigger } from "./popover";
 import { Calendar } from "./calendar";
@@ -121,7 +128,6 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
   const openedRangeRef = useRef<DateRange | undefined>(undefined);
   const openedRangeCompareRef = useRef<DateRange | undefined>(undefined);
 
-
   const [selectedPreset, setSelectedPreset] = useState<string | undefined>(
     undefined
   );
@@ -226,7 +232,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
     }
   };
 
-  const checkPreset = (): void => {
+  const checkPreset = useCallback(() => {
     for (const preset of PRESETS) {
       const presetRange = getPresetRange(preset.name);
 
@@ -252,7 +258,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
     }
 
     setSelectedPreset(undefined);
-  };
+  }, [range]);
 
   const resetValues = (): void => {
     setRange({
@@ -289,7 +295,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
 
   useEffect(() => {
     checkPreset();
-  }, [range]);
+  }, [checkPreset, range]);
 
   const PresetButton = ({
     preset,
@@ -330,7 +336,7 @@ export const DateRangePicker: FC<DateRangePickerProps> & {
       openedRangeRef.current = range;
       openedRangeCompareRef.current = rangeCompare;
     }
-  }, [isOpen]);
+  }, [isOpen, range, rangeCompare]);
 
   return (
     <Popover
